@@ -1,0 +1,30 @@
+{
+    "name": "ingwar1991/php_norm",
+    "type": "library",
+    "license": "GPL-3.0+",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "ingwar1991"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ingwar1991\\Norm\\": "src/"
+        }
+    },
+    "repositories": [
+    	{
+      		"type": "vcs",
+      		"url": "https://github.com/ingwar1991/phpTimeProcessors"
+    	},
+    	{
+      		"type": "vcs",
+      		"url": "https://github.com/ingwar1991/phpDBConnections"
+    	}
+    ],
+    "require": {
+    	"ingwar1991/php_db_connections": "dev-master",
+    	"ingwar1991/php_time_processors": "dev-master"
+    }
+}
