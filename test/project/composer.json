@@ -1,0 +1,35 @@
+{
+    "name": "ingwar1991/php_norm_tests",
+    "type": "demo",
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "ingwar1991"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "norm_test\\": "src/"
+        }
+    },
+    "repositories": [
+    	{
+            "type": "vcs",
+            "url": "https://github.com/ingwar1991/phpDBConnections"
+    	},
+    	{
+            "type": "vcs",
+            "url": "https://github.com/ingwar1991/phpTimeProcessors"
+    	},
+        {
+            "type": "vcs",
+            "url": "https://github.com/ingwar1991/phpNorm"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "ingwar1991/php_db_connections": "dev-master",
+        "ingwar1991/php_norm": "dev-master"
+    }
+}

@@ -1,0 +1,45 @@
+services:
+    norm_test_mysql:
+      build: ./mysql
+      networks:
+        - norm_test_backend
+      environment:
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASS}
+        MYSQL_DATABASE: ${MYSQL_DB}
+        MYSQL_USER: ${MYSQL_USER}
+        MYSQL_PASSWORD: ${MYSQL_PASS}
+      healthcheck:
+        test: [
+          "CMD", 
+          "bash", 
+          "/docker-entrypoint-initdb.d/check_db_and_user.sh",
+        ]
+        interval: 5s
+        retries: 10
+        start_period: 5s
+        timeout: 10s
+      volumes:
+        - /var/lib/mysql/
+      command: mysqld
+    norm_test_php:
+        build: 
+          context: ../ 
+          dockerfile: docker/php/Dockerfile
+        networks:
+          - norm_test_backend
+        depends_on:
+          norm_test_mysql:
+            condition: service_healthy
+        environment:
+          MYSQL_HOST: ${MYSQL_HOST}
+          MYSQL_DB: ${MYSQL_DB}
+          MYSQL_USER: ${MYSQL_USER}
+          MYSQL_PASS: ${MYSQL_PASS}
+        volumes:
+            - ./../project:/var/www/project
+            - /var/www/project/vendor
+            - /var/www/project/tools
+        working_dir: /var/www/project
+        command: tail -F anything
+networks:
+  norm_test_backend:

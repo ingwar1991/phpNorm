@@ -1,2 +1,6 @@
 composer.lock
 vendor/
+
+test/project/composer.lock
+test/project/tools/
+test/project/vendor/

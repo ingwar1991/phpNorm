@@ -13,18 +13,28 @@
             "ingwar1991\\Norm\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Ingwar1991\\Norm\\Test\\": "test/"
+        }
+    },
+    "extra": {
+        "exclude-from-classmap": [
+            "test/*"
+        ]
+    },
     "repositories": [
-    	{
-      		"type": "vcs",
-      		"url": "https://github.com/ingwar1991/phpTimeProcessors"
-    	},
-    	{
-      		"type": "vcs",
-      		"url": "https://github.com/ingwar1991/phpDBConnections"
-    	}
+        {
+            "type": "vcs",
+            "url": "https://github.com/ingwar1991/phpTimeProcessors"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/ingwar1991/phpDBConnections"
+        }
     ],
     "require": {
-    	"ingwar1991/php_db_connections": "dev-master",
-    	"ingwar1991/php_time_processors": "dev-master"
+        "ingwar1991/php_db_connections": "dev-master",
+        "ingwar1991/php_time_processors": "dev-master"
     }
 }
